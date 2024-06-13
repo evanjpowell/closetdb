@@ -51,6 +51,22 @@ app.delete("/clothes/:id", (req,res)=>{
     });
 });
 
+app.put("/clothes/:id", (req,res)=>{
+    const pieceId = req.params.id;
+    const q = "UPDATE clothes SET `name` = ?, `category` = ?, `picture` = ? WHERE id = ?";
+
+    const values = [
+        req.body.pieceName,
+        req.body.category,
+        req.body.picture
+    ]
+
+    db.query(q, [...values,pieceId], (err,data)=>{
+        if (err) return res.json(err);
+        return res.json("Item has been updated successfully.");
+    });
+});
+
 app.listen(8800, ()=>{
     console.log("connected to backend")
 })

@@ -39,7 +39,7 @@ const Clothes = () => {
                         <h2>{piece.name}</h2>
                         <p>{piece.category}</p>
                         <button className="delete" onClick={()=>handleDelete(piece.id)}>Delete</button>
-                        <button className="update">Edit</button>
+                        <button className="update"><Link to={`/update/${piece.id}`}>Edit</Link></button>
                     </div>
                 ))}
             </div>

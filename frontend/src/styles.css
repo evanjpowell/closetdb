@@ -25,3 +25,9 @@ img{
     object-fit: cover;
     width: 150px;
 }
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
