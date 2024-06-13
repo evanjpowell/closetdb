@@ -28,18 +28,28 @@ app.get("/clothes", (req, res)=>{
 })
 
 app.post("/clothes", (req,res)=>{
-    const q = "INSERT INTO books (`name`, `category`, `picture`) VALUES (?)"
+    const q = "INSERT INTO clothes (`name`, `category`, `picture`) VALUES (?)"
     const values = [
-        req.body.name,
+        req.body.pieceName,
         req.body.category,
-        req.body.pic
-    ]
+        req.body.picture
+    ];
 
     db.query(q, [values], (err, data)=>{
         if (err) return res.json(err)
-        return res.json("book has been created successfully")
-    })
-})
+        return res.json("item has been created successfully")
+    });
+});
+
+app.delete("/clothes/:id", (req,res)=>{
+    const pieceId = req.params.id;
+    const q = "DELETE FROM clothes WHERE id = ?";
+
+    db.query(q, [pieceId], (err,data)=>{
+        if (err) return res.json(err);
+        return res.json("Item has been deleted successfully.");
+    });
+});
 
 app.listen(8800, ()=>{
     console.log("connected to backend")
