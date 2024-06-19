@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage": "https://gitname.github.io/clothes",
+  "homepage": "https://gitname.github.io/closetdb",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
