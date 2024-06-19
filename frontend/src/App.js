@@ -9,6 +9,7 @@ import Update from './pages/Update';
 function App() {
   return (
     <div className="App">
+      <p>Test</p>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Clothes/>}/>
